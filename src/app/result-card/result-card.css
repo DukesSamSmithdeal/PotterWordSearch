@@ -1,0 +1,28 @@
+.card{
+	background-color: white;
+	width: 90%;
+	margin: 20px auto;
+	border: 2px solid var(--p-primary-contrast-color);
+	border-radius: 20px;
+	padding-left: 30px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	padding-right: 40px;
+}
+h1{
+	font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+	padding-bottom: 20px;
+}
+h3{
+	font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+	padding-bottom: 40px;
+}
+p{
+	line-height: 200%;
+	color: rgb(38, 36, 36);
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--p-primary-500);
+  margin: 10px 0;
+}

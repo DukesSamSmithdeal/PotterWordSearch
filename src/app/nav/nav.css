@@ -1,0 +1,29 @@
+
+.nav{
+	height: 100px;
+	background-color: var(--p-primary-500);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--p-primary-contrast-color);
+  	border-bottom: 2px solid var(--p-primary-contrast-color);
+  	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.title{
+	margin-left: 15px;
+	font-family: 'Cinzel Decorative', serif;
+}
+.theme img{
+	height: 50px;
+	border: 2px solid var(--secondary);
+	border-radius: 5%;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.theme{
+	display: flex;
+	align-items: center;
+	padding-right: 15px;
+	font-family: 'Cinzel Decorative', serif;
+
+}

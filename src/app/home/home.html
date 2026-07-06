@@ -1,0 +1,42 @@
+@if(isLoading()){
+  <div class="overlay">
+    <p-progressspinner />
+  </div>
+}
+<div [class.blurred]="isLoading()">
+<app-nav></app-nav>
+<div class="wrapper">
+	<div class="search-bar">
+		<p-inputgroup>
+			<input type="text" pInputText placeholder="Search" #searchInput/>
+			<p-inputgroup-addon [class.ng-invalid]="showError()" [class.ng-dirty]="showError()" (click)="search(searchInput.value)" [style]="{'cursor': 'pointer'}">
+				<i class="pi pi-search"></i>
+			</p-inputgroup-addon>
+		</p-inputgroup>
+	</div>
+	@if(showError()){
+  		<small style="color: red;">Please enter a search term</small>
+	}
+
+	<div class="book-selection">
+        <div>
+            @for (book of books; track book) {
+                <div class="checkbox">
+                    <p-checkbox [inputId]="book.key" [(ngModel)]="book.checked" [binary]="true" name="group" [value]="book" [ariaChecked]="true" />
+                    <label pLabel [for]="book.key" class="text-sm">{{ book.name }}</label>
+                </div>
+            }
+        </div>
+    </div>
+
+	<div style="color: white; margin-top: 15px;">
+		Occurrences: {{bookService.count()}}
+	</div>
+
+	@if(results.length > 0 && results.length < 51){
+		@for(result of results; track result){
+			<app-result-card [result]="result" style="width: 100%;"></app-result-card>
+		}
+	}
+</div>
+</div>
