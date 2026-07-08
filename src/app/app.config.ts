@@ -11,7 +11,10 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     providePrimeNG({
       theme: {
-        preset: GryffindorPreset
+        preset: GryffindorPreset,
+		    options: {
+      		darkModeSelector: '.my-app-dark' // forces light mode, ignores system preference
+    		}
       }
     })
   ]
