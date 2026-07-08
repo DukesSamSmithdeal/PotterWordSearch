@@ -34,19 +34,26 @@ export class Home {
 	results: SearchResult[] = [];
 	showError = signal<boolean>(false);
 
-	async search(query: string) {
-  		this.isLoading.set(true);
-		query = query.trim().toLowerCase();
-  		try {
-			if(query == ""){
-				this.showError.set(true);
-				return;
-			}
-			this.showError.set(false);
-    		const results = await this.bookService.search(query, this.books);
-			this.results = results;
-  		} finally {
-    		this.isLoading.set(false);
-  		}
+	search(query: string) {
+	this.isLoading.set(true);
+	query = query.trim().toLowerCase();
+
+	if (query === "") {
+		this.showError.set(true);
+		this.isLoading.set(false);
+		return;
+	}
+	this.showError.set(false);
+
+	setTimeout(() => {
+		try {
+		this.results = this.bookService.search(query, this.books);
+		if (this.results.length > 100) {
+			this.results = [];
+		}
+		} finally {
+		this.isLoading.set(false);
+		}
+	}, 500);
 	}
 }

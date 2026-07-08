@@ -21,7 +21,7 @@ export class App implements OnInit{
 	
 	];
   	constructor(private readonly themeService: ThemesService, private readonly bookService: BookService, @Inject(PLATFORM_ID) private platformId: Object){}
-	async ngOnInit(): Promise<void> {
+	ngOnInit() {
 		let currentTheme = localStorage.getItem('theme');
 		if(currentTheme){
 			this.themeService.setTheme(currentTheme)
@@ -30,10 +30,7 @@ export class App implements OnInit{
 			this.themeService.setTheme('gryffindor');
 			localStorage.setItem("theme", 'gryffindor')
 		}
-		const books: any = await this.bookService.getBooks();
-		if(books.length === 0){
-			this.loadBooksIntoDb()
-		}
+		this.loadBooksIntoDb();
 		
 	}
 
