@@ -8,8 +8,8 @@
 <div class="wrapper">
 	<div class="search-bar">
 		<p-inputgroup>
-			<input type="text" pInputText placeholder="Search" #searchInput/>
-			<p-inputgroup-addon [class.ng-invalid]="showError()" [class.ng-dirty]="showError()" (click)="search(searchInput.value)" [style]="{'cursor': 'pointer'}">
+			<input type="text" pInputText placeholder="Search" #searchInput (keydown.enter)="search(searchInput.value)"/>
+			<p-inputgroup-addon [class.ng-invalid]="showError()" [class.ng-dirty]="showError()"  (click)="search(searchInput.value)" [style]="{'cursor': 'pointer'}">
 				<i class="pi pi-search"></i>
 			</p-inputgroup-addon>
 		</p-inputgroup>
